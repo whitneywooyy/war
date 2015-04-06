@@ -98,6 +98,22 @@ $(document).ready(function() {
     
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
+	var war = function(cardFromP1, cardFromP2){
+		for (var i = 0; i < cards_player_1.length; i++) {
+			for (var j = 0; j < cards_player_2.length; j++) {
+				if (cardFromP1 > cardFromP2) {
+					return cardFromP1;
+				}    
+				else if (cardFromP2 > cardFromP1) {
+					return cardFromP2;
+				}
+				else {
+					return false;
+				}
+			}
+		}	
+	};
+	war();
 	
 
 
