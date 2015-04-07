@@ -93,16 +93,50 @@ $(document).ready(function() {
 		}
 	};
 	deal();
-	// console.log(cards_player_1);
-	// console.log(cards_player_2);
+	console.log(cards_player_1);
+	console.log(cards_player_2);
     
 	
 	//create a function (algorithm) called "war" that takes two cards as parameters, compares them and returns a winner. A tie should return false.
-	
+	var war = function(cardFromP1, cardFromP2){
+		for (var i = 0; i < cardFromP1.length; i++) {
+
+			var P1sPlay = cardFromP1[i];
+			var P1sCard = cardFromP1[i].number;
+			console.log("P1's card: " + P1sCard);
+
+			for (var j = 0; j < cardFromP2.length; j++) {
+
+				var P2sPlay = cardFromP2[j];
+				var P2sCard = cardFromP2[j].number;
+				console.log("P2's Card: " + P2sCard);
+
+				if (P1sCard > P2sCard) {
+					console.log("P1 Wins With: " + P1sCard);
+					return P1sCard;
+				}    
+				else if (P2sCard > P1sCard) {
+					console.log("P2 Wins With: " + P2sCard);
+					return P2sCard;
+				}
+				
+			}
+			
+		}
+		P1sPlay.shift();
+		P2sPlay.shift();
+		return false;
+
+		//--- Code currently does not return false when it's a tie!!! :(
+			
+	};
+	// console.log(war(cards_player_1, cards_player_2));
+ 	war(cards_player_1, cards_player_2);
 	
 
 
-	
+
+
 	var advance = function(){
 		//take the top two cards and display them
 		if (cards_player_1.length) {
